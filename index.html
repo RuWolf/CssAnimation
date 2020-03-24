@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="wrapper">
-    <a href="" class="wave-btn">
-      <span class="wave-btn__text">Кнопка</span>
-      <span class="wave-btn__waves"></span>
-    </a>
-  </div>
+<div class="nlab-calc">
+    <div class="params">
+        <div class="type-audio">
+            <div class="title">Тип аудио</div>
+            <div class="length-audio">
+                <div id="short" class="title active">Короткое</div>
+                <div id="long" class="title">Длинное</div>
+            </div>
+        </div>
+        <div class="quantity-channel not-visible">
+            <div class="title">Количество каналов</div>
+            <input id="value-channel" type="number" min="1" value="1">
+        </div>
+        <div class="duration-audio">
+            <div class="title">Длительность аудио</div>
+            <div class="time-audio">
+                <input type="number" min="0" value="0">
+                <div>
+                    <div id="sec" class="time active">секунд</div>
+                    <div id="min" class="time">минут</div>
+                    <div id="hour" class="time">часов</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="total">
+        <h2>Итого:</h2>
+        <div id="result"></div>
+    </div>
+
+</div>
 </body>
 </html>
