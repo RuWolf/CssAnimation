@@ -1,5 +1,6 @@
 .nlab-calc {
     display: flex;
+    width: 800px;
 }
 .params {
     display: flex;
