@@ -69,14 +69,14 @@ calcPrice = () => {
   if (channel === 1) {
     let allTime = +time * factorTime;
     let price = Math.ceil(allTime / 15) * 10 / 100;
-    return `NLab Speech: ${price}₽`;
+    return `NLab Speech: ${price.toFixed(2)}₽`;
   } else {
     let doubleChannel = Math.ceil(channel / 2);
     let channelTime = Math.ceil(time * factorTime);
     if (channelTime < 15) {
       channelTime = 15;
     }
-    return `NLab Speech: ${doubleChannel * channelTime / 100}₽`
+    return `NLab Speech: ${(doubleChannel * channelTime / 100).toFixed(2)}₽`
   }
 };
 
