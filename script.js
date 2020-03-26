@@ -1,10 +1,10 @@
-const short = document.querySelector('#short');
-const long = document.querySelector('#long');
-const quantityChannel = document.querySelector('.quantity-channel');
-const sec = document.querySelector('#sec');
-const min = document.querySelector('#min');
-const hour = document.querySelector('#hour');
-const result = document.querySelector('#result');
+const short = document.querySelector('#calc-audio-short');
+const long = document.querySelector('#calc-audio-long');
+const quantityChannel = document.querySelector('.calc-quantity-channel');
+const sec = document.querySelector('#calc-time-sec');
+const min = document.querySelector('#calc-time-min');
+const hour = document.querySelector('#calc-time-hour');
+const result = document.querySelector('#calc-result');
 const valueChannel = document.querySelector('#value-channel');
 const valueTime = document.querySelector('#value-time');
 
@@ -12,65 +12,71 @@ let channel = 1; //количество каналов
 let time = 0; //
 let factorTime = 1; // времянной коэф. Показывает количество сек. в зависимости от выбранной времяной шкалы
 
-short.addEventListener('click', (event) => {
-  short.classList.add('active');
-  long.classList.remove('active');
-  quantityChannel.classList.add('not-visible')
+short && short.addEventListener('click', (event) => {
+  short.classList.add('calc-button-active');
+  long.classList.remove('calc-button-active');
+  quantityChannel.classList.add('calc-not-visible');
+  channel = 1;  //сброс параметров при сворачивании окна
+  valueChannel.value = 1;
+  result.innerHTML = calcPrice();
 });
 
-long.addEventListener('click', (event) => {
-  long.classList.add('active');
-  short.classList.remove('active');
-  quantityChannel.classList.remove('not-visible');
+long && long.addEventListener('click', (event) => {
+  long.classList.add('calc-button-active');
+  short.classList.remove('calc-button-active');
+  quantityChannel.classList.remove('calc-not-visible');
 });
 
-sec.addEventListener('click', (event) => {
-  sec.classList.add('active');
-  min.classList.remove('active');
-  hour.classList.remove('active');
+sec && sec.addEventListener('click', (event) => {
+  sec.classList.add('calc-button-active');
+  min.classList.remove('calc-button-active');
+  hour.classList.remove('calc-button-active');
   factorTime = 1;
+  result.innerHTML = calcPrice();
 });
 
-min.addEventListener('click', (event) => {
-  min.classList.add('active');
-  sec.classList.remove('active');
-  hour.classList.remove('active');
+min && min.addEventListener('click', (event) => {
+  min.classList.add('calc-button-active');
+  sec.classList.remove('calc-button-active');
+  hour.classList.remove('calc-button-active');
   factorTime = 60;
+  result.innerHTML = calcPrice();
 });
 
-hour.addEventListener('click', (event) => {
-  hour.classList.add('active');
-  sec.classList.remove('active');
-  min.classList.remove('active');
+hour && hour.addEventListener('click', (event) => {
+  hour.classList.add('calc-button-active');
+  sec.classList.remove('calc-button-active');
+  min.classList.remove('calc-button-active');
   factorTime = 3600;
+  result.innerHTML = calcPrice();
 });
 
-valueChannel.addEventListener('click', event => {
+valueChannel && valueChannel.addEventListener('change', event => {
   if (+event.target.value > 0) {
     channel = +event.target.value;
   } else {
     channel = 1;
   }
-  result.innerHTML = calcPrise();
+  result.innerHTML = calcPrice();
 });
 
-valueTime.addEventListener('click', event => {
+valueTime && valueTime.addEventListener('change', event => {
   time = event.target.value;
-  result.innerHTML = calcPrise();
+  result.innerHTML = calcPrice();
 });
 
-calcPrise = () => {
+calcPrice = () => {
   if (channel === 1) {
     let allTime = +time * factorTime;
-    let prise = Math.ceil(allTime / 15) * 10 / 100;
-    return `NLab Speech ${prise}₽`;
+    let price = Math.ceil(allTime / 15) * 10 / 100;
+    return `NLab Speech: ${price}₽`;
   } else {
-    let doobleChannel = Math.ceil(channel / 2);
-    let channelTime = Math.ceil(time*factorTime);
+    let doubleChannel = Math.ceil(channel / 2);
+    let channelTime = Math.ceil(time * factorTime);
     if (channelTime < 15) {
       channelTime = 15;
     }
-    return `NLab Speech ${doobleChannel*channelTime/100}₽`
+    return `NLab Speech: ${doubleChannel * channelTime / 100}₽`
   }
 };
 

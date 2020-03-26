@@ -7,34 +7,34 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-<div class="nlab-calc">
-    <div class="params">
-        <div class="type-audio">
-            <div class="title">Тип аудио</div>
+<div id="nlab-calc">
+    <div class="calc-data">
+        <div class="calc-type-audio">
+            <div class="calc-text">Тип аудио</div>
             <div class="length-audio">
-                <div id="short" class="title active">Короткое</div>
-                <div id="long" class="title">Длинное</div>
+                <div id="calc-audio-short" class="calc-text calc-button-active">Короткое</div>
+                <div id="calc-audio-long" class="calc-text">Длинное</div>
             </div>
         </div>
-        <div class="quantity-channel not-visible">
-            <div class="title">Количество каналов</div>
+        <div class="calc-quantity-channel calc-not-visible">
+            <div class="calc-text">Количество каналов</div>
             <input id="value-channel" type="number" min="1" value="1">
         </div>
-        <div class="duration-audio">
-            <div class="title">Длительность аудио</div>
+        <div class="calc-duration-audio">
+            <div class="calc-text">Длительность аудио</div>
             <div class="time-audio">
                 <input id="value-time" type="number" min="0" value="0">
                 <div>
-                    <div id="sec" class="title active">секунд</div>
-                    <div id="min" class="title">минут</div>
-                    <div id="hour" class="title">часов</div>
+                    <div id="calc-time-sec" class="calc-text calc-button-active">секунд</div>
+                    <div id="calc-time-min" class="calc-text">минут</div>
+                    <div id="calc-time-hour" class="calc-text">часов</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="total">
+    <div class="calc-total">
         <h2>Итого:</h2>
-        <div id="result"></div>
+        <div id="calc-result"></div>
     </div>
 
 </div>

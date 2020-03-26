@@ -1,34 +1,36 @@
-.nlab-calc {
+#nlab-calc {
     display: flex;
     width: 800px;
+    margin: 0 auto;
     background: #16193b;
+    box-sizing: border-box;
     color: white;
     font-size: 22px;
     font-family: "Roboto Thin", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-.params {
+.calc-data {
     display: flex;
     flex-direction: column;
     width: 70%;
 }
-.total {
+.calc-total {
     border-left: 2px solid white;
     padding: 15px;
 }
-.type-audio {
+.calc-type-audio {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.quantity-channel {
+.calc-quantity-channel {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.duration-audio {
+.calc-duration-audio {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -44,22 +46,28 @@
     flex-direction: row;
 }
 
-.title {
+.calc-text {
     padding: 20px 18px 15px;
     margin: 5px;
 }
 
-.active {
+.calc-button-active {
     border-bottom: 5px solid #bb1aac;
 
 }
 
-.not-visible {
+.calc-not-visible {
     display: none;
 }
 
 input {
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: #16193b;
+    color: white;
     width: 80px;
     height: 20px;
-    margin: 5px;
+    font-size: 18px;
+    padding: 4px;
+    margin: 20px;
 }
